@@ -34,7 +34,7 @@
 		d3.json("data/Outdoor_Rinks.geojson", function(error, data) {
 			var geoJsonLayer = new L.GeoJSON(data, {
 				onEachFeature: function(feature, layer) {
-					layer.bindPopup(feature.properties.PARK_NAME);
+					layer.bindPopup('<a href="' + feature.properties.PDF_SCHEDULE + '">' + feature.properties.PARK_NAME + '</a>');
 				},
 				pointToLayer: function (feature, latlng) {
 			        return L.circleMarker(latlng, geojsonMarkerOptions);
